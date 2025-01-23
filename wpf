@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+// Start the CLI if invoked from the command line
+if (php_sapi_name() === 'cli') {
+	require __DIR__ . '/dev/cli/WPFluentCli.php';
+    (new WPFluentCli(
+    	$argv,
+    	getcwd(),
+		__DIR__. '/dev/vendor/autoload.php',
+		__DIR__. '/dev/globals.php',
+		__DIR__. '/dev/cli/functions.php'
+    ))->run();
+}

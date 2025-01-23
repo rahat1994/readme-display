@@ -1,0 +1,51 @@
+// text colors
+.text {
+    &-primary {
+        color: #20a0ff
+    }
+
+    &-success {
+        color: #13ce66
+    }
+
+    &-info {
+        color: #50bfff
+    }
+
+    &-warning {
+        color: #f7ba2a
+    }
+
+    &-bg-highlight {
+        background: #EEEEEE;
+    }
+
+    &-danger {
+        color: #ff4949
+    }
+
+    &-align {
+        &-right {
+            text-align: right;
+        }
+
+        &-center {
+            text-align: center;
+        }
+    }
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.fframe_body {
+    width: 98.5%;
+}
+
+.page-content {
+    font-size: 18px;
+    margin-bottom:10px;
+    padding:10px 20px 15px;
+    height: 70vh;
+}

@@ -1,0 +1,60 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bfe2663f2b125dbfbbf8bb37511e87fb",
+    "packages": [
+        {
+            "name": "wpfluent/framework",
+            "version": "2.10.39",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:wpfluent/framework.git",
+                "reference": "82c9ba453478099cbf8eb97ed9f1278f4a0f8689"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpfluent/framework/zipball/82c9ba453478099cbf8eb97ed9f1278f4a0f8689",
+                "reference": "82c9ba453478099cbf8eb97ed9f1278f4a0f8689",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WPFluent\\": "src/WPFluent"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sheikh Heera",
+                    "email": "heera.sheikh77@gmail.com"
+                }
+            ],
+            "description": "A lightweight rest api based framework to build WordPress plugins.",
+            "time": "2024-12-02T17:50:18+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {},
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}

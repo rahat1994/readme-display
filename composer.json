@@ -1,0 +1,56 @@
+{
+    "name": "wpfluent/wpfluent",
+    "type": "project",
+    "description": "WPFluent - The best framework to build WordPress plugins.",
+    "keywords": [
+        "WordPress",
+        "framework",
+        "WPFluent"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sheikh Heera",
+            "email": "heera.sheikh77@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/wpfluent/framework"
+        }
+    ],
+    "require": {
+        "wpfluent/framework": ">=2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ReadmeDisplay\\App\\": "app/",
+            "ReadmeDisplay\\Dev\\": "dev/"
+        },
+        "classmap": [
+            "database/"
+        ],
+        "files": []
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        },
+        "wpfluent": {
+            "namespace": {
+                "current": "ReadmeDisplay"
+            }
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "ReadmeDisplay\\Dev\\ComposerScript::run"
+        ],
+        "post-update-cmd": [
+            "ReadmeDisplay\\Dev\\ComposerScript::run"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

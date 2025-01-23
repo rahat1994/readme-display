@@ -1,0 +1,24 @@
+{
+    "name": "wpfluent/frameworktest",
+    "version": "1.0.0",
+    "require-dev": {
+        "phpunit/phpunit": "^8",
+        "yoast/phpunit-polyfills": "^2.0",
+        "symfony/console": "^4.0|^5.0",
+        "fzaninotto/faker": "^1.9",
+        "nikic/php-parser": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {},
+        "classmap": [
+            "cli", "factories", "test"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Sheikh Heera",
+            "email": "heera.sheikh77@gmail.com"
+        }
+    ],
+    "require": {}
+}
