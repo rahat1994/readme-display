@@ -1,9 +1,9 @@
 import Model from "@/modules/Model";
 import { useRoute } from "vue-router";
-import PostController from "./PostController";
+import PluginController from "./PluginController";
 import { capitalize, computed, getCurrentInstance } from "vue";
 
-class Post extends Model {
+class Plugin extends Model {
   data = {
     list: [],
     form: {},
@@ -27,7 +27,7 @@ class Post extends Model {
   async get() {
     this.isBusy.loading = true;
 
-    const response = await PostController.withQuery({
+    const response = await PluginController.withQuery({
       ...this.useQuery(),
     }).get();
 
@@ -39,13 +39,13 @@ class Post extends Model {
   }
 
   async find(id) {
-    this.instance = await PostController.find(id);
+    this.instance = await PluginController.find(id);
   }
 
   async save() {
     const method = this.form.ID ? "update" : "store";
 
-    const response = await PostController.withParams(this.form)[method](
+    const response = await PluginController.withParams(this.form)[method](
       this.form.ID
     );
 
@@ -55,14 +55,14 @@ class Post extends Model {
   }
 
   async delete(data) {
-    PostController.delete(data.ID).then(this.get);
+    PluginController.delete(data.ID).then(this.get);
   }
 
   mapFormData(data) {
     return {
-      ID: data?.ID,
-      post_title: data?.post_title,
-      post_content: data?.post_content,
+      id: data?.id,
+      name: data?.name,
+      slug: data?.slug,
     };
   }
 
@@ -118,4 +118,4 @@ class Post extends Model {
   }
 }
 
-export default Post;
+export default Plugin;

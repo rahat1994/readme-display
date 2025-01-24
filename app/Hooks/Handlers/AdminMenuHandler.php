@@ -98,9 +98,9 @@ class AdminMenuHandler
                 'permalink' => $baseUrl . 'posts'
             ],
             [
-                'key'       => 'comments',
-                'label'     => __('Not Found', 'readmedisplay'),
-                'permalink' => $baseUrl . 'xyz'
+                'key'       => 'plugins',
+                'label'     => __('Plugin', 'readmedisplay'),
+                'permalink' => $baseUrl . 'plugins'
             ]
         ];
 

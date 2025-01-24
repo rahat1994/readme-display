@@ -1,30 +1,31 @@
 <template>
   <div>
-    <page-head :post="post" />
-    <page-body :post="post" />
-    <post-form :post="post" />
+    <PageHeader :plugin="plugin" />
+    <PageBody :plugin="plugin" />
   </div>
 </template>
 
 <script type="text/javascript">
-import PageHead from "./components/PageHeader";
+import Plugin from "./Plugin";
 import PageBody from "./components/PageBody";
-import PostForm from "./components/Form";
-import Post from "./Post";
+import PageHeader from "./components/PageHeader";
+import PageForm from "./components/Form";
 
 export default {
-  name: "Posts",
+  name: "Plugin",
   components: {
-    PageHead,
     PageBody,
-    PostForm,
+    PageHeader,
   },
   setup(props, ctx) {
-    const post = Post.init();
+    const plugin = Plugin.init();
     return {
-      post: post,
-      data: post.data,
+      plugin: plugin,
+      data: plugin.data,
     };
+  },
+  onMounted() {
+    console.log("Plugin mounted");
   },
 };
 </script>
