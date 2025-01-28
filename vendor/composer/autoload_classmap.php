@@ -8,4 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'ReadmeDisplay\\Database\\DBMigrator' => $baseDir . '/database/DBMigrator.php',
+    'ReadmeDisplay\\Database\\Migrations\\AddDescriptionColumnRDPlugins' => $baseDir . '/database/Migrations/AddDescriptionColumnRDPlugins.php',
+    'ReadmeDisplay\\Database\\Migrations\\RDPluginsMigrator' => $baseDir . '/database/Migrations/RDPluginsMigrator.php',
 );

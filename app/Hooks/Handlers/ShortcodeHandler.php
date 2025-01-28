@@ -72,18 +72,19 @@ class ShortcodeHandler
         // Convert sections with === at the start and end to <h1> tags
         $cleaned_content = preg_replace('/^===\s*(.*?)\s*===$/m', '<h1>$1</h1>', $cleaned_content);
         $cleaned_content = preg_replace('/^==\s*(.*?)\s*==$/m', '<h2>$1</h2>', $cleaned_content);
+        $cleaned_content = preg_replace('/^=\s*(.*?)\s*=$/m', '<p>$1</p>', $cleaned_content);
 
         $this->parseDown->setBreaksEnabled(true);
         $cleaned_content = $this->parseDown->text($cleaned_content);
 
         $cleaned_content = $this->wrapIframesWithDiv($cleaned_content);
 
-        $changeLog = $this->pluginReadmeParser->parseChangelog($body);
-        $faq = $this->pluginReadmeParser->parseFaq($body);
+        // $changeLog = $this->pluginReadmeParser->parseChangelog($body);
+        // $faq = $this->pluginReadmeParser->parseFaq($body);
 
+        // return $changeLog;
 
-
-        return $cleaned_content . "<h2>Changelog</h2>" . $changeLog . "<h2>FAQ</h2>" . $faq;
+        return $cleaned_content;
     }
 
 

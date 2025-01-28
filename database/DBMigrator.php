@@ -2,8 +2,9 @@
 
 namespace ReadmeDisplay\Database;
 
+use ReadmeDisplay\Database\Migrations\RDPluginsMigrator;
 use ReadmeDisplay\Framework\Database\Schema;
-
+use ReadmeDisplay\Database\Migrations\AddDescriptionColumnRDPlugins;
 class DBMigrator
 {
     private static $migrations = [
@@ -30,21 +31,26 @@ class DBMigrator
          * 
          * @see https://codex.wordpress.org/Creating_Tables_with_Plugins#Creating_or_Updating_the_Table
          */
-        return Schema::migrate(static::getMigrations());
+        // return Schema::migrate(static::getMigrations());
+
+        // RDPluginsMigrator::migrate();
+        AddDescriptionColumnRDPlugins::migrate();
     }
 
     public static function getMigrations()
     {
-        $sqls = array_merge(
-            static::getMigratableFiless(
-                glob(__DIR__ . '/Migrations/*.sql')
-            ),
-            static::mapMigrations()
-        );
 
-        return array_filter($sqls, function ($file) {
-            return basename($file) !== 'example.sql';
-        });
+        return self::$migrations;
+        // $sqls = array_merge(
+        //     static::getMigratableFiless(
+        //         glob(__DIR__ . '/Migrations/*.sql')
+        //     ),
+        //     static::mapMigrations()
+        // );
+
+        // return array_filter($sqls, function ($file) {
+        //     return basename($file) !== 'example.sql';
+        // });
     }
 
     public static function getMigratableFiless($files)

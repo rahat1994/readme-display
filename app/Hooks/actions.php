@@ -17,6 +17,14 @@ use ReadmeDisplay\App\Hooks\Handlers\ShortcodeHandler;
 
 $app->addAction('admin_menu', 'AdminMenuHandler');
 $app->addShortcode('readme-display', [ShortcodeHandler::class, 'add']);
+$app->addAction('plugins_loaded', function () {
+
+	$currentDBVersion = get_option('readme_display_db_version');
+	if (!$currentDBVersion || version_compare($currentDBVersion, FLUENT_COMMUNITY_DB_VERSION, '<')) {
+		update_option('fluent_community_db_version', RD_DB_VERSION, false);
+		\ReadmeDisplay\Database\DBMigrator::run();
+	}
+});
 /**
  * Enable this line if you want to use custom post types
  */

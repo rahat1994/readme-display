@@ -33,6 +33,8 @@ class ComposerStaticInitbfe2663f2b125dbfbbf8bb37511e87fb
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ReadmeDisplay\\Database\\DBMigrator' => __DIR__ . '/../..' . '/database/DBMigrator.php',
+        'ReadmeDisplay\\Database\\Migrations\\AddDescriptionColumnRDPlugins' => __DIR__ . '/../..' . '/database/Migrations/AddDescriptionColumnRDPlugins.php',
+        'ReadmeDisplay\\Database\\Migrations\\RDPluginsMigrator' => __DIR__ . '/../..' . '/database/Migrations/RDPluginsMigrator.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

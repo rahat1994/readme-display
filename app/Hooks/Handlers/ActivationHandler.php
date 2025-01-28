@@ -48,6 +48,12 @@ class ActivationHandler
     protected function activatePlugin()
     {
         // Plugin Activation Code...
-        DBMigrator::run();
+        try {
+            DBMigrator::run();
+            update_option('readme_display_db_version', RD_DB_VERSION, false);
+        } catch (\Exception $e) {
+            // Log the error...
+        }
+
     }
 }
