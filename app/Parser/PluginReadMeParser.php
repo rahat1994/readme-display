@@ -3,7 +3,7 @@
 namespace ReadmeDisplay\App\Parser;
 
 use ReadmeDisplay\App\Models\Model;
-use ReadmeDisplay\Parsedown;
+use ReadmeDisplay\App\Parser\Parsedown;
 class PluginReadmeParser extends Parser
 {
     public $parseDownParser;
