@@ -1,6 +1,6 @@
 <?php
 
-namespace ReadmeDisplay;
+namespace ReadmeDisplay\App\Parser;
 
 #
 #

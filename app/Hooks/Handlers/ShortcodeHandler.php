@@ -5,7 +5,7 @@ namespace ReadmeDisplay\App\Hooks\Handlers;
 use ReadmeDisplay\App\App;
 use ReadmeDisplay\App\Parser\PluginReadmeParser;
 use ReadmeDisplay\App\Utils\Enqueuer\Enqueue;
-use ReadmeDisplay\Parsedown;
+use ReadmeDisplay\App\Parser\Parsedown;
 class ShortcodeHandler
 {
 
