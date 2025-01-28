@@ -12,7 +12,7 @@ class AdminMenuHandler
      * @var WPFluent\Foundation\Application
      */
     protected $app;
-    
+
     /**
      * $app Config instance
      * @var WPFluent\Foundation\Config
@@ -59,7 +59,7 @@ class AdminMenuHandler
      * @return null
      */
     public function render()
-    {   
+    {
         $this->enqueueAssets(
             $slug = $this->config->get('app.slug')
         );
@@ -70,11 +70,11 @@ class AdminMenuHandler
         );
 
         $this->app->view->render('admin.menu', [
-            'name'      => $this->config->get('app.name'),
-            'slug'      => $slug,
-            'baseUrl'   => $baseUrl,
+            'name' => $this->config->get('app.name'),
+            'slug' => $slug,
+            'baseUrl' => $baseUrl,
             'menuItems' => $this->getMenuItems($baseUrl),
-            'logo'      => Enqueue::getStaticFilePath('images/logo.svg'),
+            'logo' => Enqueue::getStaticFilePath('images/logo.svg'),
         ]);
     }
 
@@ -88,24 +88,15 @@ class AdminMenuHandler
     {
         $menuItems = [
             [
-                'key'       => 'dashboard',
-                'label'     => __('Dashboard', 'readmedisplay'),
+                'key' => 'plugins',
+                'label' => __('Plugin', 'readmedisplay'),
                 'permalink' => $baseUrl
-            ],
-            [
-                'key'       => 'posts',
-                'label'     => __('Posts', 'readmedisplay'),
-                'permalink' => $baseUrl . 'posts'
-            ],
-            [
-                'key'       => 'plugins',
-                'label'     => __('Plugin', 'readmedisplay'),
-                'permalink' => $baseUrl . 'plugins'
             ]
         ];
 
         return $this->app->applyCustomFilters(
-            'admin_menu_items', $menuItems
+            'admin_menu_items',
+            $menuItems
         );
     }
 
@@ -151,16 +142,16 @@ class AdminMenuHandler
         $authUser = get_user_by('ID', get_current_user_id());
 
         wp_localize_script($slug . '_admin_app', 'fluentFrameworkAdmin', [
-            'slug'          => $slug,
-            'user_locale'   => get_locale(),
-            'brand_logo'    => $this->getMenuIcon(),
-            'nonce'         => wp_create_nonce($slug),
-            'asset_url'     => $this->app['url.assets'],
-            'rest'          => $r = $this->getRestInfo(),
-            'endpoints'     => $this->getRestEndpoinds($r),
-            'me'            => [
-                'id'        => $authUser->ID ?? null,
-                'email'     => $authUser->user_email ?? null,
+            'slug' => $slug,
+            'user_locale' => get_locale(),
+            'brand_logo' => $this->getMenuIcon(),
+            'nonce' => wp_create_nonce($slug),
+            'asset_url' => $this->app['url.assets'],
+            'rest' => $r = $this->getRestInfo(),
+            'endpoints' => $this->getRestEndpoinds($r),
+            'me' => [
+                'id' => $authUser->ID ?? null,
+                'email' => $authUser->user_email ?? null,
                 'full_name' => $authUser->display_name ?? null
             ],
         ]);
@@ -177,11 +168,11 @@ class AdminMenuHandler
         $ver = $this->app->config->get('app.rest_version');
 
         return [
-            'base_url'  => $this->getBaseRestUrl(),
-            'url'       => $this->getFullRestUrl($ns, $ver),
-            'nonce'     => wp_create_nonce('wp_rest'),
+            'base_url' => $this->getBaseRestUrl(),
+            'url' => $this->getFullRestUrl($ns, $ver),
+            'nonce' => wp_create_nonce('wp_rest'),
             'namespace' => $ns,
-            'version'   => $ver
+            'version' => $ver
         ];
     }
 
@@ -232,15 +223,15 @@ class AdminMenuHandler
      */
     protected function getRestEndpoinds($r)
     {
-        $url = $r['url'].'/'.$r['namespace'].'/__endpoints';
+        $url = $r['url'] . '/' . $r['namespace'] . '/__endpoints';
 
         $slug = $this->config->get('app.slug');
-        
+
         $result = wp_remote_get($url, [
             'sslverify' => false,
-            'cookies'   => $_COOKIE,
+            'cookies' => $_COOKIE,
             'user-agent' => "wpfluent.{$slug}.__endpoints",
-            'headers'   => [
+            'headers' => [
                 'X-Wp-Nonce' => $r['nonce']
             ]
         ]);
@@ -249,7 +240,7 @@ class AdminMenuHandler
             return json_decode(wp_remote_retrieve_body($result), true);
         }
 
-        if (is_wp_error($result)) {    
+        if (is_wp_error($result)) {
             $message = $result->get_error_message();
         } else {
             $message = 'WordPress rest request failed.';

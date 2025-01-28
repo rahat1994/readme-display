@@ -7,6 +7,8 @@ const addQueryParam = (url, key, value) => {
 };
 
 const makeResponse = async (response) => {
+    console.log(response);
+
     return {
         original: response,
         status: response.status,

@@ -26,11 +26,11 @@
                         <el-button
                             link
                             type="primary"
-                            @click="post.edit(scope.row)"
+                            @click="plugin.edit(scope.row)"
                             >Edit</el-button
                         >
 
-                        <confirm #reference @yes="post.delete(scope.row)">
+                        <confirm #reference @yes="plugin.delete(scope.row)">
                             <el-button link type="danger">Delete</el-button>
                         </confirm>
                     </template>
