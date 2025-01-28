@@ -14,7 +14,7 @@ class PostController extends Controller
         $useFilter = $status !== 'all';
 
         return Post::latest('ID')
-            ->when($useFilter, function($query) use($status) {
+            ->when($useFilter, function ($query) use ($status) {
                 $query->where('post_status', $status);
             })
             ->paginate($request->per_page);

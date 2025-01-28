@@ -1,5 +1,7 @@
 <?php
 
+use ReadmeDisplay\App\Hooks\Handlers\ShortcodeHandler;
+
 /**
  * All registered action's handlers should be in app\Hooks\Handlers,
  * addAction is similar to add_action and addCustomAction is just a
@@ -14,7 +16,7 @@
  */
 
 $app->addAction('admin_menu', 'AdminMenuHandler');
-
+$app->addShortcode('readme-display', [ShortcodeHandler::class, 'add']);
 /**
  * Enable this line if you want to use custom post types
  */
